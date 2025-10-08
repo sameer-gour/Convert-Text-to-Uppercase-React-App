@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaMoon, FaSun } from "react-icons/fa"; 
 
 
-const Navbar = (props) => {
+
+const Navbar = ({dm,toggleMode}) => {
+
+  
+
   return (
-     <nav className="bg-white shadow-md">
+     <nav className={` shadow-md ${dm ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>
     <div className="max-w-6xl mx-auto px-4">
       <div className="flex justify-between items-center py-3">
 
         
         <div className="text-2xl font-bold text-blue-600">
-          {props.name}
+          Sameer
         </div>
 
         
         <div className="hidden md:flex space-x-6">
-          <a href="/  " className="text-gray-600 hover:text-blue-600">Home</a>
-          <a href="/" className="text-gray-600 hover:text-blue-600">About</a>
-          <a href="/" className="text-gray-600 hover:text-blue-600">Services</a>
-          <a href="/" className="text-gray-600 hover:text-blue-600">Contact</a>
+          <a href="/  " className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`}>Home</a>
+          <a href="/" className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`}>About</a>
+          <a href="/" className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`}>Contact</a>
+          <button
+        onClick={toggleMode}
+        className="text-4xl p-1 rounded-full bg-gray-200 hover:bg-gray-300 transition"
+      >
+        {dm ? <FaSun className="text-yellow-400" /> : <FaMoon className="text-gray-700" />}
+      </button>
+          
         </div>
 
         
@@ -34,10 +45,10 @@ const Navbar = (props) => {
 
     
     <div id="mobile-menu" className="hidden md:hidden bg-white">
-      <a href="/" className="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
-      <a href="/" className="block px-4 py-2 text-gray-600 hover:bg-gray-100">About</a>
-      <a href="/" className="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
-      <a href="/" className="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact</a>
+      <a href="/" className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`} >Home</a>
+      <a className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`} >About</a>
+      <a href="/" className={`block px-4 py-2 ${dm? 'text-white ' : 'text-black' }`} >Contact</a>
+      
     </div>
   </nav>
 

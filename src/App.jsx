@@ -1,15 +1,18 @@
 import { useState } from 'react'
 
 import Navbar from './comoponents/Navbar'
-import Box from './comoponents/box'
+import Box from './comoponents/Box';
 
 function App() {
-  
+  const [dm,setdm] = useState(false)
+  const toggleMode = ()=>{
+    setdm(!dm);
+  };
 
   return (
     <>
-      <Navbar name="Sameer" />
-      <Box/>
+      <Navbar dm={dm} toggleMode={toggleMode} />
+      <Box dm={dm} toggleMode={toggleMode} />
     </>
   )
 }
